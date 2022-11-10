@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"encoding/json"
 	"fmt"
+	"time"
 
 	"github.com/giovani-f/gointensivo-fullcycle/internal/infra/database"
 	"github.com/giovani-f/gointensivo-fullcycle/internal/usecase"
@@ -40,5 +41,6 @@ func main() {
 		}
 		msg.Ack(false)
 		fmt.Println(outputDTO)
+		time.Sleep(500 * time.Millisecond)
 	}
 }

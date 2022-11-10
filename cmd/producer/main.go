@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"math/rand"
+	"time"
 
 	"github.com/giovani-f/gointensivo-fullcycle/internal/order/entity"
 	"github.com/google/uuid"
@@ -48,7 +49,8 @@ func main() {
 		panic(err)
 	}
 	defer ch.Close()
-	for i := 0; i < 100; i++ {
+	for i := 0; i < 10000; i++ {
 		Publish(ch, GenerateOrders())
+		time.Sleep(300 * time.Millisecond)
 	}
 }
